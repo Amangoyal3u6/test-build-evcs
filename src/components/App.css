@@ -252,4 +252,14 @@
     display: flex;
   }
 }
+
+.stationListItem :hover {
+  color: rgba(255, 10, 10, 0.9);
+  -webkit-transition: color 0.1s linear;
+  transition: color 0.1s linear;
+}
+
+.stationListItem .listItemImg {
+  margin: 10px;
+}
 /*# sourceMappingURL=App.css.map */

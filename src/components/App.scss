@@ -194,8 +194,6 @@ img{
         }
     }
 
-
-
 }
 
 @media screen and (max-width:716px){
@@ -243,6 +241,19 @@ img{
     }
 }
 
+
+// MainView CSS
+
+.stationListItem{
+ 
+    :hover{
+        color: rgba(255, 10, 10, 0.9);
+        transition: color 0.1s linear ;
+    }
+    .listItemImg{
+        margin : 10px;
+    }
+}
 
 
 

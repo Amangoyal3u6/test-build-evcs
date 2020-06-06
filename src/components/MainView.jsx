@@ -1,18 +1,48 @@
 import React, { Component } from 'react'
-import {Layout, Textfield,  Navigation, Header, Drawer, Content} from 'react-mdl';
-import Button from 'react-bootstrap/Button';
+import {Layout , Navigation, Header, Drawer, Content , List , ListItem , ListItemAction , ListItemContent , Icon, Button} from 'react-mdl';
+import './App.css';
+import ListModal from './ListModal'
+// import {Button , Dialog , DialogActions , DialogContent , DialogTitle } from 'react-mdl'
+
+
 
 class MainView extends Component {
+    
     state = { list :[
-        {key:0 , value:'Singh Gas Station'},
-        {key:1 , value:'Goyal Gas Station'},
-        {key:3 , value:'Jha Gas Station'}
-    ]
+        {key:0 , value:'Singh Gas Station' , img : "https://avatarfinancial.com/uploads/images/birchwood---front.jpg" },
+        {key:1 , value:'Goyal Gas Station' , img:"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRrilQTDd90pmhWeP0ot8zorczcWI_wA3znO97Zi2Ty3vPbT3ZJ&usqp=CAU"},
+        {key:3 , value:'Aman Gas Station', img:"https://avatarfinancial.com/uploads/images/birchwood---front.jpg"},
+        {key:4 , value:'Shivam Gas Station', img:"https://avatarfinancial.com/uploads/images/birchwood---front.jpg"},
+        {key:5 , value: 'Upinder Gas Station', img:"https://avatarfinancial.com/uploads/images/birchwood---front.jpg"},
+        {key:6 , value: 'Palak Gas Station', img:"https://avatarfinancial.com/uploads/images/birchwood---front.jpg"},
+        {key:7 , value: 'Jit Gas Station', img:"https://avatarfinancial.com/uploads/images/birchwood---front.jpg"},
+        {key:8 , value: '$ingh Gas Station', img:"https://avatarfinancial.com/uploads/images/birchwood---front.jpg"}
+
+
+    ],
+    isModalOpen:false
    }
    
-   RenderList = () => {
-    return this.state.list.map((ele) => (<li key={ele.key} className='list-group-item'>{ele.value}</li>));
+   RenderList = () => { 
+    return this.state.list.map((ele) => (
+                        
+        <ListItem key={ele.key}  className='stationListItem'  threeLine>
+                <img src={ele.img} height="60px" width="80px" className="listItemImg"/>
+                <ListItemContent  subtitle="Bryan Cranston played the role of Walter in Breaking Bad. He is also known for playing Hal in Malcom in the Middle."> <a onClick={this.toggleModal}>{ele.value}</a>
+                </ListItemContent>
+            <ListItemAction>
+                <a href="#"><Icon name="star" /></a>
+            </ListItemAction>
+        </ListItem >
+    ));
     }
+
+    toggleModal = () => {
+        console.log("inside Ismodel");
+        this.setState({isModalOpen:true} )
+        
+    }
+
     render() {
         
     
@@ -39,11 +69,15 @@ class MainView extends Component {
                         <Content>
 
                             <div className="page-content">
-                                <div className="card" style={{width: "100%" , textAlign:'center'}}>
-                                 <ul className="list-group list-group-flush">
+                                
+                                <List style={{width: '70%'}}>
                                     {this.RenderList()}
-                                </ul> 
-                                </div>
+ 
+                                </List>
+
+                                <Button className='btn btn-dark' onClick={ this.toggleModal}>isModalOpen</Button>
+                                < ListModal  isOpen = {this.state.isModalOpen} />
+                               
                             </div>
                         </Content>
                     </Layout>
