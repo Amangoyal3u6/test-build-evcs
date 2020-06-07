@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import {Layout , Navigation, Header, Drawer, Content , List , ListItem , ListItemAction , ListItemContent , Icon, Button} from 'react-mdl';
 import './App.css';
 import ListModal from './ListModal'
-// import {Button , Dialog , DialogActions , DialogContent , DialogTitle } from 'react-mdl'
 
 
 
@@ -17,35 +16,47 @@ class MainView extends Component {
         {key:6 , value: 'Palak Gas Station', img:"https://avatarfinancial.com/uploads/images/birchwood---front.jpg"},
         {key:7 , value: 'Jit Gas Station', img:"https://avatarfinancial.com/uploads/images/birchwood---front.jpg"},
         {key:8 , value: '$ingh Gas Station', img:"https://avatarfinancial.com/uploads/images/birchwood---front.jpg"}
-
-
     ],
-    isModalOpen:false
+    isModalOpen:false,
+    isToggle:false,
+    SelectedVendor:0
    }
    
    RenderList = () => { 
     return this.state.list.map((ele) => (
                         
-        <ListItem key={ele.key}  className='stationListItem'  threeLine>
+        < ListItem key={ele.key} className='stationListItem' threeLine >
                 <img src={ele.img} height="60px" width="80px" className="listItemImg"/>
-                <ListItemContent  subtitle="Bryan Cranston played the role of Walter in Breaking Bad. He is also known for playing Hal in Malcom in the Middle."> <a onClick={this.toggleModal}>{ele.value}</a>
+                <ListItemContent  subtitle="Bryan Cranston played the role of Walter in Breaking Bad. He is also known for playing Hal in Malcom in the Middle."> <a onClick={this.isModalOpen}>{ele.value}</a>
                 </ListItemContent>
             <ListItemAction>
                 <a href="#"><Icon name="star" /></a>
             </ListItemAction>
-        </ListItem >
+        </ ListItem >
     ));
     }
 
-    toggleModal = () => {
-        console.log("inside Ismodel");
-        this.setState({isModalOpen:true} )
+    changeFocus = () =>{
+        
+
+    }
+
+     isModalOpen = () => {
+         console.log("inside IsmodelOpen");
+         this.setState({isModalOpen:true} )
+        
+    //     const obj = this.state.list.filter( (n) =>{ n.key == this.state } )
+        
+     }
+
+    isModalClose = () => {
+        console.log("inside IsmodelClose");
+        this.setState({isModalOpen:false} )
         
     }
 
     render() {
-        
-    
+          
         return ( 
             <div className='MainView'>
                 <div className="demo-big-content">
@@ -75,8 +86,7 @@ class MainView extends Component {
  
                                 </List>
 
-                                <Button className='btn btn-dark' onClick={ this.toggleModal}>isModalOpen</Button>
-                                < ListModal  isOpen = {this.state.isModalOpen} />
+                                < ListModal  isClose={this.isModalClose} isOpen = {this.state.isModalOpen} />
                                
                             </div>
                         </Content>
