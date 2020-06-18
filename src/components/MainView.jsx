@@ -8,14 +8,15 @@ import ListModal from './ListModal'
 class MainView extends Component {
     
     state = { list :[
-        {key:0 , value:'Singh Gas Station' , img : "https://avatarfinancial.com/uploads/images/birchwood---front.jpg" },
-        {key:1 , value:'Goyal Gas Station' , img:"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRrilQTDd90pmhWeP0ot8zorczcWI_wA3znO97Zi2Ty3vPbT3ZJ&usqp=CAU"},
-        {key:3 , value:'Aman Gas Station', img:"https://avatarfinancial.com/uploads/images/birchwood---front.jpg"},
-        {key:4 , value:'Shivam Gas Station', img:"https://avatarfinancial.com/uploads/images/birchwood---front.jpg"},
-        {key:5 , value: 'Upinder Gas Station', img:"https://avatarfinancial.com/uploads/images/birchwood---front.jpg"},
-        {key:6 , value: 'Palak Gas Station', img:"https://avatarfinancial.com/uploads/images/birchwood---front.jpg"},
-        {key:7 , value: 'Jit Gas Station', img:"https://avatarfinancial.com/uploads/images/birchwood---front.jpg"},
-        {key:8 , value: '$ingh Gas Station', img:"https://avatarfinancial.com/uploads/images/birchwood---front.jpg"}
+        {key:0 , name:'Singh Gas Station' , img : "https://avatarfinancial.com/uploads/images/birchwood---front.jpg" },
+        {key:1 , name:'Goyal Gas Station' , img:"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRrilQTDd90pmhWeP0ot8zorczcWI_wA3znO97Zi2Ty3vPbT3ZJ&usqp=CAU"},
+        {key:2 , name:'Goyal Gas Station' , img:"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRrilQTDd90pmhWeP0ot8zorczcWI_wA3znO97Zi2Ty3vPbT3ZJ&usqp=CAU"},
+        {key:3 , name:'Aman Gas Station', img:"https://avatarfinancial.com/uploads/images/birchwood---front.jpg"},
+        {key:4 , name:'Shivam Gas Station', img:"https://avatarfinancial.com/uploads/images/birchwood---front.jpg"},
+        {key:5 , name: 'Upinder Gas Station', img:"https://avatarfinancial.com/uploads/images/birchwood---front.jpg"},
+        {key:6 , name: 'Palak Gas Station', img:"https://avatarfinancial.com/uploads/images/birchwood---front.jpg"},
+        {key:7 , name: 'Jit Gas Station', img:"https://avatarfinancial.com/uploads/images/birchwood---front.jpg"},
+        {key:8 , name: '$ingh Gas Station', img:"https://avatarfinancial.com/uploads/images/birchwood---front.jpg"}
     ],
     isModalOpen:false,
     isToggle:false,
@@ -23,11 +24,11 @@ class MainView extends Component {
    }
    
    RenderList = () => { 
-    return this.state.list.map((ele) => (
+    return this.state.list.map((vendor) => (
                         
-        < ListItem key={ele.key} className='stationListItem' threeLine >
-                <img src={ele.img} height="60px" width="80px" className="listItemImg"/>
-                <ListItemContent  subtitle="Bryan Cranston played the role of Walter in Breaking Bad. He is also known for playing Hal in Malcom in the Middle."> <a onClick={this.isModalOpen}>{ele.value}</a>
+        < ListItem key={vendor.key} className='stationListItem' threeLine >
+                <img src={vendor.img} height="60px" width="80px" className="listItemImg"/>
+                <ListItemContent onClick={ () => {this.changeFocus(vendor)}} subtitle="Bryan Cranston played the role of Walter in Breaking Bad. He is also known for playing Hal in Malcom in the Middle."> <a onClick={this.isModalOpen}>{vendor.name}</a>
                 </ListItemContent>
             <ListItemAction>
                 <a href="#"><Icon name="star" /></a>
@@ -36,8 +37,16 @@ class MainView extends Component {
     ));
     }
 
-    changeFocus = () =>{
-        
+
+
+    changeFocus = (eleKey) =>{
+        console.log("eleKey" , eleKey);
+        const SelectedVendor = eleKey;
+        this.setState({SelectedVendor} , () => {
+            console.log(this.state.SelectedVendor);
+        } )
+
+
 
     }
 
@@ -86,7 +95,7 @@ class MainView extends Component {
  
                                 </List>
 
-                                < ListModal  isClose={this.isModalClose} isOpen = {this.state.isModalOpen} />
+                                < ListModal currentVendor = {this.state.SelectedVendor}  isClose={this.isModalClose} isOpen = {this.state.isModalOpen} />
                                
                             </div>
                         </Content>
