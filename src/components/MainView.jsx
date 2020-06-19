@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {Layout , Navigation, Header, Drawer, Content , List , ListItem , ListItemAction , ListItemContent , Icon, Button} from 'react-mdl';
 import './App.css';
 import ListModal from './ListModal'
-
+// import Profile from './Profile'
 
 
 class MainView extends Component {
@@ -96,7 +96,7 @@ class MainView extends Component {
                                 </List>
 
                                 < ListModal currentVendor = {this.state.SelectedVendor}  isClose={this.isModalClose} isOpen = {this.state.isModalOpen} />
-                               
+                               {/* <Profile /> */}
                             </div>
                         </Content>
                     </Layout>
