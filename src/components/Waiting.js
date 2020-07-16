@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export class Waiting extends Component {
+class Waiting extends Component {
     render() {
         return (
             <div>
