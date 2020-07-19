@@ -10,23 +10,6 @@
 }
 
 .sign-box .Sign {
-  /*
-@media screen and (max-width:528px){
-    .logo-header{
-        img{
-            width: 25%;
-        }
-    }
-}
-
-@media screen and (max-width:1050px) {
-    .logo-header{
-        img{
-            width: 18%;
-        }
-    }
-}
-*/
   background-color: white;
   width: 50%;
   height: 100%;
@@ -35,7 +18,7 @@
 }
 
 .sign-box .Sign .logo-header {
-  background-color: red;
+  background-color: #EC1B21;
   width: 100%;
   height: auto;
 }
@@ -253,60 +236,163 @@
   }
 }
 
-.stationListItem :hover {
+.stationListItem a {
+  color: black;
+}
+
+.stationListItem a:hover {
+  padding-bottom: 10px;
+}
+
+.stationListItem:hover {
   color: rgba(255, 10, 10, 0.9);
   -webkit-transition: color 0.1s linear;
   transition: color 0.1s linear;
+  font-size: 21px;
+  letter-spacing: 1px;
+  -webkit-transition: font-size,letter-spacing 250ms;
+  transition: font-size,letter-spacing 250ms;
+  -webkit-transition-timing-function: ease-out;
+          transition-timing-function: ease-out;
 }
 
 .stationListItem .listItemImg {
   margin: 10px;
 }
+
+.demo-big-content {
+  display: block;
+}
+
+.demo-big-content #main-header {
+  background-color: #EC1B21;
+}
+
+.demo-big-content .sidebar-list-hr {
+  text-align: center;
+  margin: 0 auto;
+  width: 50%;
+}
+
+.demo-big-content .card {
+  text-align: center;
+  background-color: transparent;
+  outline: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.demo-big-content .card .card .class-content #sidebar-img {
+  border-radius: 70%;
+  padding: 4px;
+  width: 180px;
+  height: 170px;
+}
+
+.demo-big-content .card .card .class-content .card-body {
+  color: #EC1B21;
+  padding: 0px;
+  margin: 0px;
+}
+
+.demo-big-content .card .card .class-content .card-title {
+  font-weight: 600;
+  padding-top: 10px;
+}
+
+.demo-big-content .list-container {
+  margin-top: 10px;
+}
+
+.demo-big-content .list-container ul {
+  text-align: center;
+  margin: 0px 0px 0px;
+  padding: 0px;
+}
+
+.demo-big-content .list-container .nav-item {
+  list-style: none;
+  padding: 15px;
+}
+
+.demo-big-content .list-container .nav-item .sidebar-links {
+  color: grey;
+  -webkit-text-decoration: solid;
+          text-decoration: solid;
+  font-size: medium;
+}
+
+.demo-big-content .list-container .nav-item .sidebar-links:hover {
+  color: red;
+  font-weight: 900;
+  font-size: 22px;
+  -webkit-transition: font-size 300ms;
+  transition: font-size 300ms;
+  -webkit-transition-timing-function: ease-out;
+          transition-timing-function: ease-out;
+}
+
+.demo-big-content .list-container .nav-item .sidebar-links .fa {
+  color: red;
+  padding-right: 5px;
+  font-size: 30px;
+}
+
+#myprofile-container {
+  width: 70%;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  padding: 40px;
+}
+
+#myprofile-container img {
+  border: 4px solid black;
+  padding: 2px;
+  z-index: 1000;
+}
+
+#myprofile-container .myprofile-imagebox {
+  border-radius: 1px;
+  padding: 0.1px;
+  background-color: rgba(0, 0, 0, 0.9);
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+}
+
+#myprofile-container .myprofile-textfields {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding-left: 30px;
+}
+
+#myprofile-container #profile-picture {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+
+#myprofile-container button {
+  outline: none;
+  border-top: 5px solid #EC1B21;
+  border-bottom: 5px solid #EC1B21;
+  border-radius: 40px;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+#myprofile-container button:hover {
+  background-color: #EC1B21;
+  -webkit-transition: background-color 300ms;
+  transition: background-color 300ms;
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 1px;
+}
+
+#myvehicle-container {
+  text-Align: center;
+}
 /*# sourceMappingURL=App.css.map */
-
-.card{
-    background-color: #f74702c5;
-    color: white;
-    border-radius: 3rem;
-}
-
-.nav-item{
-    list-style-type: none;
-    padding-top: 0.5em;
-}
-
-li a {
-    color: rgba(0, 0, 0, 0.692);
-    font-weight: bold;
-    font-size: larger;
-}
-
-.nav-item :hover {
-    color: rgba(0, 0, 0, 0.568);
-}
-
-.list-container {
-    background-color: aliceblue;
-}
-
-.card-content {
-    padding: 5rem;
-}
-
-/* .mdl-layout__header-row {
-    background-color: green;
-    color: rgb(238, 255, 0);
-}
-
-.mdl-layout__header {
-    background-color: rgb(0, 255, 255);
-}
-
-.mdl-layout__drawer-button {
-    color: chocolate;
-    background-color: black;
-    
-} */
-
-
-

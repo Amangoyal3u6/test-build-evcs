@@ -7,7 +7,7 @@ $redshade : #EC1B21;
 @mixin header {
 
 .logo-header{
-    background-color: red;
+    background-color: $redshade;
     width:100%;
     height:auto;
 
@@ -27,23 +27,7 @@ img{
 
 
 }
-/*
-@media screen and (max-width:528px){
-    .logo-header{
-        img{
-            width: 25%;
-        }
-    }
-}
 
-@media screen and (max-width:1050px) {
-    .logo-header{
-        img{
-            width: 18%;
-        }
-    }
-}
-*/
 }
 
 
@@ -245,22 +229,171 @@ img{
 // MainView CSS
 
 .stationListItem{
- 
-    :hover{
+
+    a{
+        color:black;
+
+        &:hover{
+            padding-bottom:10px;
+        }
+    }
+    
+    &:hover{
         color: rgba(255, 10, 10, 0.9);
         transition: color 0.1s linear ;
+        font-size:21px;
+        letter-spacing: 1px;
+        transition: font-size,letter-spacing 250ms;
+        transition-timing-function: ease-out;
+
     }
     .listItemImg{
         margin : 10px;
     }
 }
 
+.demo-big-content{
+
+    #main-header{
+        background-color: $redshade;
+    }
+
+    display: block;
+    // margin: "0px auto";
+    .sidebar-list-hr{
+        text-align: center;
+        margin: 0 auto;
+        width: 50%;
+    }
+    .card{
+        text-align: center;
+        background-color:transparent;
+        outline:none;
+        box-shadow: none;
+        .card{
+            .class-content{
+                #sidebar-img{
+                    border-radius: 70% ;
+                    padding: 4px;
+                    width: 180px;
+                    height: 170px;
+                
+                }
+                .card-body{
+                    color:$redshade;
+                    padding: 0px;
+                    margin: 0px;
+                }
+                .card-title{
+                    font-weight: 600;
+                    padding-top: 10px;
+                }
+            }
+        }
+    }
+    .list-container{
+        ul{
+            text-align:center;
+            margin:0px 0px 0px;
+            padding: 0px;
+        }
+        margin-top: 10px;
+        .nav-item{
+            list-style: none;
+            padding: 15px;
+            .sidebar-links{
+                color:grey;
+                text-decoration: solid;
+                font-size: medium;
+                &:hover{
+                    color:red;
+                    font-weight: 900;
+                    font-size: 22px;
+                    transition: font-size 300ms ;
+                    transition-timing-function: ease-out ;
+                }
+                .fa{
+                    color: red;
+                    padding-right: 5px;
+                    font-size: 30px;
+                }
+            
+            }
+        }
+    }
+    
+}  
 
 
 
+// profile page css
+
+#myprofile-container{
+
+    width: 70%;
+    margin-top: 20px;
+    margin-left:auto;
+    margin-right: auto;
+    img{
+        border: 4px solid black;
+        padding: 2px;
+        z-index: 1000;
+    }
+    .myprofile-imagebox{
+        // border: 8px solid black;
+        border-radius: 1px;
+        padding: 0.1px;
+        background-color: rgba(0, 0, 0, 0.9);
+        width: 90%;
+        margin-left:auto;
+        margin-right: auto;
+        margin-top:50px;
+        // margin-top: 30px;
+    }
+
+    .myprofile-textfields{
+        margin-top: 50px;
+        margin-bottom: 50px;
+        padding-left: 30px;
+
+    }
+    
+    text-align:center;
+    padding:40px;
+
+    #profile-picture{
+        width:200px;
+        height:200px;
+        border-radius: 50%;
+    }
+
+
+    button{
+        outline: none;
+        border-top: 5px solid $redshade;
+        border-bottom: 5px solid $redshade;
+
+        border-radius: 40px;
+        background-color: rgba(0, 0, 0, 0.7);
+
+        &:hover{
+            background-color: $redshade;
+            transition: background-color 300ms;
+            font-weight: 600;
+            font-size: 15px;
+            letter-spacing: 1px;
+        }
+
+    }
+        
+
+}
 
 
 
+#myvehicle-container{
+    text-Align:center;
+}
 
 
 

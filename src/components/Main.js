@@ -7,7 +7,6 @@ import AddVehicleInfo from './AddVehicleInfo';
 import FetchSubmitInfo from './FetchSubmitInfo';
 import caraousel from './caraousel';
 import MainView from './MainView';
-import Shivam from './Shivam';
 
 
 const Main = () => (
@@ -19,7 +18,7 @@ const Main = () => (
         <Route path='/SubmitFetch' component={FetchSubmitInfo} />
         <Route path='/caraousel' component={caraousel} />
         <Route path='/main' component={MainView} />
-        <Route path='/shivam' component={Shivam} />
+
     </switch>
 )
 

@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
 import './App.css'
-import { Textfield, Button, Card, Grid, Cell } from 'react-mdl';
-import ReactMDL from 'react-mdl';
-// import OtpInput from 'react-otp-input';
-import { Link } from 'react-router-dom';
+import { Textfield, Button, Grid, Cell } from 'react-mdl';
 import Carousel from './Carousel'
 
 class Sign extends Component {
