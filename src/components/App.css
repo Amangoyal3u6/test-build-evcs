@@ -1,3 +1,21 @@
+.evcsButton {
+  outline: none;
+  background-color: #EC1B21;
+  letter-spacing: 0.9px;
+  font-weight: 600;
+  margin-top: 20px;
+}
+
+.evcsInput {
+  width: 280px;
+  display: block;
+  height: 40px;
+  font-size: 15px;
+  margin: 18px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -151,15 +169,11 @@
 }
 
 .sign-box .Sign .otp-input {
-  border-style: double;
+  border-style: solid;
+  border-color: #EC1B21;
   border-radius: 25%;
   margin: 0.15em;
   outline: none;
-}
-
-.sign-box .Sign Button {
-  display: block;
-  margin: 40px auto;
 }
 
 .sign-box .slider {
@@ -375,24 +389,81 @@
   border-radius: 50%;
 }
 
-#myprofile-container button {
+#myprofile-container .evcs-button, #myprofile-container button {
   outline: none;
-  border-top: 5px solid #EC1B21;
-  border-bottom: 5px solid #EC1B21;
-  border-radius: 40px;
-  background-color: rgba(0, 0, 0, 0.7);
-}
-
-#myprofile-container button:hover {
   background-color: #EC1B21;
-  -webkit-transition: background-color 300ms;
-  transition: background-color 300ms;
+  letter-spacing: 0.9px;
   font-weight: 600;
-  font-size: 15px;
-  letter-spacing: 1px;
 }
 
 #myvehicle-container {
   text-Align: center;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  scroll-behavior: initial;
+}
+
+#myvehicle-container h3 {
+  color: red;
+  font-weight: 300;
+  letter-spacing: 5px;
+  background-color: rgba(224, 168, 168, 0.9);
+  padding: 8px;
+}
+
+#myvehicle-container #vehicle-picture {
+  width: 200px;
+  border-radius: 25%;
+  border-top: 3px solid #EC1B21;
+  border-bottom: 3px solid #EC1B21;
+  padding: 4px;
+}
+
+#myvehicle-container table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#myvehicle-container td, #myvehicle-container th {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
+}
+
+#myvehicle-container tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+#myvehicle-container button {
+  outline: none;
+  background-color: #EC1B21;
+  letter-spacing: 0.9px;
+  font-weight: 600;
+}
+
+#myvehicle-container .addRC-form form h3 {
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+  font-size: 20px;
+}
+
+#myvehicle-container .addRC-form form .addRC-inputs {
+  width: 100%;
+  margin: 0px;
+  padding: 10px;
+  border: 2px solid rgba(224, 168, 168, 0.9);
+  text-align: center;
+}
+
+#myvehicle-container .addRC-form form button {
+  outline: none;
+  background-color: #EC1B21;
+  letter-spacing: 0.9px;
+  font-weight: 600;
+  margin-top: 20px;
 }
 /*# sourceMappingURL=App.css.map */

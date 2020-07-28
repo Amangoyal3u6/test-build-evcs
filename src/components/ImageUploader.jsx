@@ -17,9 +17,6 @@ class ImageUpload extends React.Component {
         this.props.setProfilePic(picture[0]);
     }
 
-    transferState = () =>{
-    }
- 
     render() {
         return (
             <div>

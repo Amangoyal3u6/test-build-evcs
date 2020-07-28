@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import './App.css'
-import { Textfield, Button, Grid, Cell } from 'react-mdl';
+import { Button, Grid, Cell } from 'react-mdl';
 import Carousel from './Carousel'
+import PersonalInfoForm from './PersonalInfoForm';
+import AddVehicleInfo from './AddVehicleInfo.jsx'
 
 class Sign extends Component {
     constructor(props) {
@@ -9,8 +11,17 @@ class Sign extends Component {
 
         this.state = {
             activelog: 0,
-            imageUploaded: null
+            imageUploaded: null,
+            mobileNo:"",
+            name:"",
+            email:"",
+            regNo:"",
+            rcImage:"",
+            rcType:""
         };
+
+        this.addPersonalInfoToState = this.addPersonalInfoToState.bind(this);
+        this.addRcInfoToState = this.addRcInfoToState.bind(this);
     }
 
     changeState(activeId) {
@@ -24,6 +35,14 @@ class Sign extends Component {
         )
     }
 
+    addPersonalInfoToState(info){
+        this.setState({ name : info.name , email : info.email });
+    }
+
+    addRcInfoToState(info){
+        this.setState({ rcType:info.type , rcImage:info.img , regNo:info.reg } , ()=>{console.log(this.state.regNo , this.state.rcImage , this.state.rcType )});
+    }
+
     toggleinup() {
         if (this.state.activelog === 0) {
             return (
@@ -32,7 +51,7 @@ class Sign extends Component {
                         <h3>GATS Charging Station</h3><br />
                         <div className='input-box'>
                             <i className='fa fa-phone'></i>
-                            <input type='tel' minLength='10' pattern="-?[0-9]*(\.[0-9]+)?" maxLength='10' placeholder='Enter your phone number' required></input>
+                            <input type='tel' value={this.state.mobileNo} minLength='10' pattern="-?[0-9]*(\.[0-9]+)?" maxLength='10' placeholder='Enter your phone number' required onChange={ (event) => { this.setState({ mobileNo : event.target.value }); } } />
                             <Button type='button' id='submitphone' onClick={() => this.changeState(3)}> <i className='fa fa-arrow-right' ></i></Button>
                         </div>
                     </form>
@@ -63,7 +82,7 @@ class Sign extends Component {
                             <input className='otp-input' style={{ width: '3rem', height: '3rem', fontSize: '2rem', textAlign: 'center' }} maxLength='1' ></input>
                         </div>
                     </div>
-                    <Button raised accent ripple style={{ background: 'red' }} onClick={() => this.changeState(1)}>SUBMIT</Button>
+                    <button className="btn btn-danger evcsButton" onClick={() => this.changeState(1)}>SUBMIT</button>
                 </div>
             );
         }
@@ -71,61 +90,18 @@ class Sign extends Component {
         else if (this.state.activelog === 1) {
             return (
                 <div className="addVehicleInfo">
-                    <form className="form-elements">
-                        <Textfield
-                            style={{ fontSize: '60px' }}
-                            onChange={() => { }}
-                            label="Good Name..."
-                            maxLength='30'
-                            style={{ width: '300px', color: 'black' }}
-                        />
-                        <br />
-                        <Textfield
-                            style={{ fontSize: '60px' }}
-                            onChange={() => { }}
-                            pattern="-?[0-9]*(\.[0-9]+)?"
-                            error="Input is not a number!"
-                            label="Contact Number..."
-                            maxLength='10'
-                            disabled
-                            style={{ width: '300px' }}
-                        />
-                        <br />
-                        <Textfield
-                            style={{ fontSize: '60px' }}
-                            onChange={() => { }}
-                            label="EMAIL_ID..."
-                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-                            error="enter a valid email-address"
-                            style={{ width: '300px', color: 'black' }}
-                        />
-                        <Button raised accent ripple style={{ background: 'red' }} onClick={() => this.changeState(2)}>ADD VEHICLE INFO</Button>
-                    </form>
+                    <PersonalInfoForm phoneNo={this.state.mobileNo}  addValuesToState={this.addPersonalInfoToState} changeComponent={() => { this.changeState(2)} } />
                 </div>
             )
         }
 
         else if (this.state.activelog === 2) {
             return (
-                <div className='submit-page' >
-                    <Textfield
-                        style={{ fontSize: '60px' }}
-                        onChange={() => { }}
-                        label="REG NO."
-                        maxLength=''
-                        style={{ width: '300px', color: 'black' }}
-                    />
-                    <br />
-                    <label style={{ fontSize: '18px', textAlign: 'center' }}>Upload RC : </label>
-                    <input style={{ margin: '0 auto', justifyContent: 'center', alignContent: 'center', fontSize: '0.2em' }} type='file' onChange={(event) => (this.fileSelector(event))} ></input>
-                    <br /><br />
-                    <select placeholder='place' style={{ width: '100%' }}>
-                        <option>Select RC type</option>
-                        <option>option1</option>
-                        <option>option2</option>
-                    </select>
-                    <br />
-                    <Button raised accent ripple style={{ background: 'red' }}> SUBMIT </Button>
+                <div className='addRcPage' >
+                    <AddVehicleInfo getInfo={this.addRcInfoToState} />
+                    
+                    
+                    
                 </div>
             )
 
