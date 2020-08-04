@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { Layout, Navigation, Header, Drawer, Content, List, ListItem, ListItemAction, ListItemContent, Icon } from 'react-mdl';
 import ListModal from './ListModal'
-import { Card } from 'react-bootstrap'
 import './App.css';
 import MyProfile from './MyProfile'
 import MyVehicle from './MyVehicle'
+import Bookings from './Bookings';
 
 class MainView extends Component {
     
@@ -25,7 +25,7 @@ class MainView extends Component {
             isModalOpen: false,
             isToggle: false,
             SelectedVendor: 0,
-            activeComponent:0
+            activeComponent:3
         }
         this.renderComponent = this.renderComponent.bind(this);
         this.handleComponentLoading = this.handleComponentLoading.bind(this);
@@ -35,7 +35,7 @@ class MainView extends Component {
     }
 
 
-      renderComponent(){
+      renderComponent( ) {
             if(this.state.activeComponent == 0){
                 return(
                     <div>
@@ -62,6 +62,14 @@ class MainView extends Component {
 
                 )
             }
+
+            else if(this.state.activeComponent == 3){
+                return(
+                    <div>
+                        <Bookings />
+                    </div>
+                )
+            }
       }
 
     RenderList() {
@@ -86,10 +94,10 @@ class MainView extends Component {
     changeFocus(eleKey){
         console.log("eleKey", eleKey);
         const SelectedVendor = eleKey;
-        this.setState({ SelectedVendor }, () => {
-            console.log(this.state.SelectedVendor);
-        })
+        this.setState({ SelectedVendor });
+    
     }
+    
 
     isModalOpen(){
         console.log("inside IsmodelOpen");
@@ -108,28 +116,21 @@ class MainView extends Component {
     render() {
         return (
             <div className='MainView'>
-                <div className="demo-big-content" >
+                <div className="mainViewWrapper" >
                     <Layout fixedHeader  >
                             <Header id="main-header" title="EVCS" scroll>
                                 <Navigation>
-                                    <a href="#">Link</a>
-                                    <a href="#">Link</a>
-                                    <a href="#">Link</a>
-                                    <a href="#">Link</a>
+                                    <a className="navbarLinks" onClick={ ()=>{ this.handleComponentLoading(0) } } href="#">HOME</a>
+                                    <a className="navbarLinks" onClick={ () => this.handleComponentLoading(3) } href="#">BOOKINGS</a>
+                                    <a className="navbarLinks" href="#">CHARGING STATUS</a>
                                 </Navigation>
                             </Header>
-                        <Drawer style={{background:"rgba(0, 0, 0, 0.9)" , padding:"13px 13px" }}>
-                            <div className="card">
-                                <Card>
+                        <Drawer style={{background:"rgba(255, 255, 255, 0.9)" , padding:"13px 13px" }}>
                                     <div className="class-content">
-                                        <Card.Img id="sidebar-img" variant="top" src="logo.jpg" fluid />
-                                        <Card.Body id="sidebar-userinfo" >
-                                            <Card.Title>Shivam Jha</Card.Title>
-                                            <Card.Text>Gatsby_Operator@gmail.com</Card.Text>
-                                        </Card.Body>
+                                        <img id="sidebarImg" variant="top" src="logo.jpg"  />
+                                            <h5>Gursidak Singh</h5>
+                                            <p>Gatsby_Operator@gmail.com</p>
                                     </div>
-                                </Card>
-                            </div>
                             <div className="list-container" >
                                 <ul>
                                     <li className="nav-item">   <a className="sidebar-links" onClick={ () => {this.handleComponentLoading(1)} } href="#"> <i className="fa fa-user"></i> My Profile </a></li>           <hr className="sidebar-list-hr" />

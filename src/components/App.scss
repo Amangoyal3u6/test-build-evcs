@@ -5,11 +5,13 @@ $redshade : #EC1B21;
     background-color:$redshade;
     letter-spacing: 0.9px;
     font-weight: 600;
+    
 }
 
 .evcsButton{
     @include evcs-button();
     margin-top: 20px;
+    // font-size:20px;
 }
 
 
@@ -278,11 +280,25 @@ img{
     }
 }
 
-.demo-big-content{
+.mainViewWrapper{
 
     #main-header{
         background-color: $redshade;
+
+    
+    .navbarLinks
+    {
+        font-weight: 800;
+        letter-spacing: 0.4px;
+        font-size: 13px;
+        &:hover{
+            text-decoration: underline;
+        
+        }
+
+ 
     }
+}
 
     display: block;
     // margin: "0px auto";
@@ -291,30 +307,24 @@ img{
         margin: 0 auto;
         width: 50%;
     }
-    .card{
+
+    .class-content{
+
         text-align: center;
-        background-color:transparent;
-        outline:none;
-        box-shadow: none;
-        .card{
-            .class-content{
-                #sidebar-img{
-                    border-radius: 70% ;
-                    padding: 4px;
-                    width: 180px;
-                    height: 170px;
+    
+            #sidebarImg{
+                border-radius: 10% ;
+                padding: 0px;
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                border: 2px solid black;
+                padding: 5px;
+                outline: none;
                 
-                }
-                .card-body{
-                    color:$redshade;
-                    padding: 0px;
-                    margin: 0px;
-                }
-                .card-title{
-                    font-weight: 600;
-                    padding-top: 10px;
-                }
+            
             }
+ 
         }
     }
     .list-container{
@@ -348,7 +358,7 @@ img{
         }
     }
     
-}  
+  
 
 
 
@@ -474,6 +484,26 @@ img{
     }
 }
 
+
+// Bookings Component Scss
+
+
+.bookings{
+    
+
+    padding: 50px;
+    #daysPendingIcon{
+        color:red;
+        font-size: 22px;
+
+    }
+
+    #paymentDoneIcon{
+        color: green;
+        margin: 6px;
+        font-size: 22px;
+    }
+}
 
 
 

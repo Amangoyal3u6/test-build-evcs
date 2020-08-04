@@ -4,6 +4,7 @@ import { Button, Grid, Cell } from 'react-mdl';
 import Carousel from './Carousel'
 import PersonalInfoForm from './PersonalInfoForm';
 import AddVehicleInfo from './AddVehicleInfo.jsx'
+import ChargerType from './ChargerType';
 
 class Sign extends Component {
     constructor(props) {
@@ -17,11 +18,13 @@ class Sign extends Component {
             email:"",
             regNo:"",
             rcImage:"",
-            rcType:""
+            rcType:"",
+            ChargerType:""
         };
 
         this.addPersonalInfoToState = this.addPersonalInfoToState.bind(this);
         this.addRcInfoToState = this.addRcInfoToState.bind(this);
+        this.addCarDetailsToState = this.addCarDetailsToState.bind(this);
     }
 
     changeState(activeId) {
@@ -43,23 +46,29 @@ class Sign extends Component {
         this.setState({ rcType:info.type , rcImage:info.img , regNo:info.reg } , ()=>{console.log(this.state.regNo , this.state.rcImage , this.state.rcType )});
     }
 
+    addCarDetailsToState(chargerType){
+
+        this.setState({ chargerType } , ()=>{console.log(this.state.chargerType)} );
+    }
+
     toggleinup() {
         if (this.state.activelog === 0) {
             return (
                 <div>
-                    <form className='sign-in-form'>
+                    <form required className='sign-in-form' onSubmit={() => this.changeState(1)}>
                         <h3>GATS Charging Station</h3><br />
                         <div className='input-box'>
                             <i className='fa fa-phone'></i>
                             <input type='tel' value={this.state.mobileNo} minLength='10' pattern="-?[0-9]*(\.[0-9]+)?" maxLength='10' placeholder='Enter your phone number' required onChange={ (event) => { this.setState({ mobileNo : event.target.value }); } } />
-                            <Button type='button' id='submitphone' onClick={() => this.changeState(3)}> <i className='fa fa-arrow-right' ></i></Button>
+                            <Button type='submit' id='submitphone'> <i className='fa fa-arrow-right' ></i></Button>
                         </div>
                     </form>
                 </div>
             )
         }
 
-        else if (this.state.activelog === 3) {
+
+        else if (this.state.activelog === 1) {
             return (
                 <div>
                     <h4> Enter verification code </h4>
@@ -82,30 +91,41 @@ class Sign extends Component {
                             <input className='otp-input' style={{ width: '3rem', height: '3rem', fontSize: '2rem', textAlign: 'center' }} maxLength='1' ></input>
                         </div>
                     </div>
-                    <button className="btn btn-danger evcsButton" onClick={() => this.changeState(1)}>SUBMIT</button>
+                    <button className="btn btn-danger evcsButton" onClick={() => this.changeState(2)}>SUBMIT</button>
                 </div>
             );
         }
 
-        else if (this.state.activelog === 1) {
-            return (
-                <div className="addVehicleInfo">
-                    <PersonalInfoForm phoneNo={this.state.mobileNo}  addValuesToState={this.addPersonalInfoToState} changeComponent={() => { this.changeState(2)} } />
-                </div>
-            )
-        }
-
         else if (this.state.activelog === 2) {
             return (
+                <div className="addVehicleInfo">
+                    <PersonalInfoForm phoneNo={this.state.mobileNo}  addValuesToState={this.addPersonalInfoToState} changeComponent={() => { this.changeState(3)} } />
+                </div>
+            )
+        }
+
+
+        else if (this.state.activelog === 3){
+            return(
+                <div>
+                    <ChargerType changeComponent={()=> {this.changeState(4)} } getChargerInfo={this.addCarDetailsToState}/>
+                </div>
+
+            );
+        }
+
+
+        else if (this.state.activelog === 4) {
+            return (
                 <div className='addRcPage' >
-                    <AddVehicleInfo getInfo={this.addRcInfoToState} />
-                    
-                    
-                    
+                    <AddVehicleInfo getInfo={this.addRcInfoToState} /> 
                 </div>
             )
 
         }
+    
+
+
     }
 
     render() {

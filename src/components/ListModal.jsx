@@ -7,7 +7,7 @@ import DatePicker from 'react-date-picker';
 class ListModal extends Component {
   state = {  }
   render() { 
-    console.log(this.props.isOpen);
+    // console.log(this.props.isOpen);
     return (
       <div>
         <Modal onRequestClose={  this.props.isClose } isOpen={this.props.isOpen}  style={{ overlay:{background:'rgba(0, 0, 0, 0.7)' , zIndex: 1000} , content:{background : 'white' }  }}  >

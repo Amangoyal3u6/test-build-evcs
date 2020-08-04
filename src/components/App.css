@@ -274,69 +274,68 @@
   margin: 10px;
 }
 
-.demo-big-content {
+.mainViewWrapper {
   display: block;
 }
 
-.demo-big-content #main-header {
+.mainViewWrapper #main-header {
   background-color: #EC1B21;
 }
 
-.demo-big-content .sidebar-list-hr {
+.mainViewWrapper #main-header .navbarLinks {
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  font-size: 13px;
+}
+
+.mainViewWrapper #main-header .navbarLinks:hover {
+  text-decoration: underline;
+}
+
+.mainViewWrapper .sidebar-list-hr {
   text-align: center;
   margin: 0 auto;
   width: 50%;
 }
 
-.demo-big-content .card {
+.mainViewWrapper .class-content {
   text-align: center;
-  background-color: transparent;
-  outline: none;
-  -webkit-box-shadow: none;
-          box-shadow: none;
 }
 
-.demo-big-content .card .card .class-content #sidebar-img {
-  border-radius: 70%;
-  padding: 4px;
-  width: 180px;
-  height: 170px;
-}
-
-.demo-big-content .card .card .class-content .card-body {
-  color: #EC1B21;
+.mainViewWrapper .class-content #sidebarImg {
+  border-radius: 10%;
   padding: 0px;
-  margin: 0px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 2px solid black;
+  padding: 5px;
+  outline: none;
 }
 
-.demo-big-content .card .card .class-content .card-title {
-  font-weight: 600;
-  padding-top: 10px;
-}
-
-.demo-big-content .list-container {
+.list-container {
   margin-top: 10px;
 }
 
-.demo-big-content .list-container ul {
+.list-container ul {
   text-align: center;
   margin: 0px 0px 0px;
   padding: 0px;
 }
 
-.demo-big-content .list-container .nav-item {
+.list-container .nav-item {
   list-style: none;
   padding: 15px;
 }
 
-.demo-big-content .list-container .nav-item .sidebar-links {
+.list-container .nav-item .sidebar-links {
   color: grey;
   -webkit-text-decoration: solid;
           text-decoration: solid;
   font-size: medium;
 }
 
-.demo-big-content .list-container .nav-item .sidebar-links:hover {
+.list-container .nav-item .sidebar-links:hover {
   color: red;
   font-weight: 900;
   font-size: 22px;
@@ -346,7 +345,7 @@
           transition-timing-function: ease-out;
 }
 
-.demo-big-content .list-container .nav-item .sidebar-links .fa {
+.list-container .nav-item .sidebar-links .fa {
   color: red;
   padding-right: 5px;
   font-size: 30px;
@@ -465,5 +464,20 @@
   letter-spacing: 0.9px;
   font-weight: 600;
   margin-top: 20px;
+}
+
+.bookings {
+  padding: 50px;
+}
+
+.bookings #daysPendingIcon {
+  color: red;
+  font-size: 22px;
+}
+
+.bookings #paymentDoneIcon {
+  color: green;
+  margin: 6px;
+  font-size: 22px;
 }
 /*# sourceMappingURL=App.css.map */

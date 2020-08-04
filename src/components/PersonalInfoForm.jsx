@@ -24,7 +24,7 @@ class PersonalInfoForm extends Component {
                 <input type="tel"    className="evcsInput"   disabled  placeholder="Contact Number"  value={this.props.phoneNo}   />
                 <input type="email"  className="evcsInput"   required  placeholder="Email address ..." value={this.state.email} onChange={  (event) => { this.setState({ email:event.target.value} ) } }         />
                 <br/>
-                <button type="submit" className="btn btn-danger evcsButton" > SUBMIT </button>
+                <button type="submit" className="btn btn-danger evcsButton" > NEXT  </button>
             </form>
         </React.Fragment>
              );
